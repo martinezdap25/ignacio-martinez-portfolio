@@ -1,11 +1,12 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
+const isProd = process.env.NODE_ENV === 'production';
+
+const repo = 'ignacio-martinez-portfolio';
+
+module.exports = {
   output: 'export',
   images: {
     unoptimized: true,
   },
-  basePath: "/ignacio-martinez-portfolio", // O el nombre del repo exacto
+  basePath: isProd ? `/${repo}` : '',
+  assetPrefix: isProd ? `/${repo}/` : '',
 };
-
-module.exports = nextConfig;
-
